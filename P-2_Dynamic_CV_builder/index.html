@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Resume Builder</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  
+    <h1>Dynamic Resume Builder</h1>
+
+    <!-- Form for user input -->
+    <form id="resumeForm">
+        <h1>Personal Information</h1> 
+
+        <label for="profilePicture"><b>Profile Image:</b></label>
+        <input type="file" id="profilePicture" name="profilePicture" accept="image/*" required>
+
+        <br>
+        <label for="name"><b>Name:</b></label>
+        <input type="text" id="name" required>
+        <br>
+        <label for="email"><b>Email:</b></label>
+        <input type="email" id="email" required>
+        <br>
+        <label for="phone"><b>Phone No:</b></label>
+        <input type="tel" id="phone" required>
+        <br>
+        <label for="DOB"><b>Date of Birth:</b></label>
+
+        <input type="tel" id="DateOfBirth" required>
+        <br>
+    
+     
+        <label for="education"><b>Education:</b></label>
+        <input type="text" id="education" required>
+        <br>
+
+     
+        <label for="experience"><b>Work Experience:</b></label>
+        <textarea name="experience" id="experience" rows="4" required></textarea>
+        <br>
+
+        
+        <label for="skills"><b>Skills (Use &):</b></label>
+        <textarea name="skills" id="skills" rows="4" required></textarea>
+        <br>
+
+        <button type="submit">Generate Resume</button>
+    </form>
+
+
+<!-- Section where resume generated -->
+
+<section id="resume" style="display:none; background-color: rgb(171, 128, 210);" >
+    <h2>Generated Resume</h2>
+    <br>
+   <h2 style="color: rgb(52, 52, 87);">Personal Info</h2> 
+    <header>
+        <h2 id="displayName"></h2>
+        <p id="displayEmail"></p>
+        <p id="displayPhone"></p>
+        <p id="displayDateOfBirth"></p>
+        <img id="displayProfilePicture" alt="Profile Picture" width="150" style="display:none;">
+    </header>
+
+    <section id="displayEducation">
+        <h2 style="color: rgb(20, 20, 36);">Education</h2>
+        <p></p>
+    </section>
+
+    <section id="displayExperience">
+        <h2 style="color: rgb(12, 12, 20);">Work Experience</h2>
+        <p></p>
+    </section>
+
+    <section id="displaySkills">
+        <h2 style="color: rgb(5, 5, 75);">Skills</h2>
+        <ul></ul>
+    </section>
+</section>
+   
+    <script src="script.js"></script>
+</body>
+</html>

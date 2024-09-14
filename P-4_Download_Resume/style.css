@@ -1,0 +1,133 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+   
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .container {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #e0f7fa; /* Sky blue background for the form */
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  #resume-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+ 
+  h1 {
+    text-align: center;
+  }
+  
+  form label {
+    display: block;
+    margin: 10px 0 5px;
+  }
+  
+  form input, form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: white;
+  }
+  
+  form input::placeholder, form textarea::placeholder {
+    color: #a9a9a9; 
+  }
+  
+  input[type="file"] {
+    padding: 0;
+  }
+   .profilePicture{
+     display: block;
+     border: 2px solid rgb(63, 60, 60);
+     margin: 0 auto;
+     box-shadow: 2px 2px rgba(182, 156, 156, 0);
+     border-radius: 50%;
+     width: 200px;
+     height: 200px;
+     object-fit: cover;                                                                                                                                                                                                                                                                                                                   ;
+   }                                                                                                                                                                                                                                                                                                                                                         
+  
+  #generate-resume {
+    background-color: #28a745;
+    color: white;
+    padding: 10px 20px;                                                                                                                                                                                                                                                                                     
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+  }
+  
+  #generate-resume:hover {
+    background-color: #3d25de;
+  } 
+  
+   .hidden {
+    display: none;
+  }
+
+  #resume-popup {
+    font-size: 1.5rem;
+    margin-top: 20px;
+    background-color: #0fadc2;
+    padding: 20px;
+    border-radius: 10px;
+  }
+  #resume-popup:hover{
+    background-color: #45e683;
+    color: white;
+  } 
+  #edit-resume{
+    background-color: #28a745;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+  }
+  #edit-resume:hover{
+    background-color: #3d25de;
+    color: white;
+  }
+  #heading{
+    background-color: rgb(181, 172, 172);
+  }
+  #heading:hover{
+     background-color: #3b0a29;
+  }
+  .para { 
+    color: #111212;
+    font-size: 20px;
+    margin-top: 20px;                                                                                                                      
+    
+  }
+  
+  .para:hover {
+    background-color: #3d25de;
+    color: white;
+  } 
+  
+   @media only screen and (max-width: 768px) {
+    .container {
+      width: 90%;
+     padding: 10px;
+    }
+  
+    form input, form textarea {
+      font-size: 16px;
+    }
+  } 

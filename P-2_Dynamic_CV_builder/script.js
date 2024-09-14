@@ -1,52 +1,65 @@
-// Get form elements
-var form = document.getElementById('resumeForm');
-var nameInput = document.getElementById('name');
-var emailInput = document.getElementById('email');
-var phoneInput = document.getElementById('phone');
-var profilePictureInput = document.getElementById('profilePicture');
-var educationInput = document.getElementById('education');
-var experienceInput = document.getElementById('experience');
-var skillsInput = document.getElementById('skills');
-// Get resume display elements
+// Selecting form and resume elements
+var resumeForm = document.getElementById('resumeForm');
 var resumeSection = document.getElementById('resume');
+var displayProfilePicture = document.createElement('img'); // Create img element
+var profilePictureInput = document.getElementById('profilePicture');
 var displayName = document.getElementById('displayName');
 var displayEmail = document.getElementById('displayEmail');
 var displayPhone = document.getElementById('displayPhone');
-var displayProfilePicture = document.getElementById('displayProfilePicture');
+var displayDateOfBirth = document.getElementById('displayDateOfBirth');
 var displayEducation = document.querySelector('#displayEducation p');
 var displayExperience = document.querySelector('#displayExperience p');
 var displaySkills = document.querySelector('#displaySkills ul');
-// Add event listener to form submission
-form.addEventListener('submit', function (event) {
-    event.preventDefault(); // Prevent the form from submitting traditionally
-    // Capture the input values
-    var name = nameInput.value;
-    var email = emailInput.value;
-    var phone = phoneInput.value;
-    var profilePicture = profilePictureInput.value;
-    var education = educationInput.value;
-    var experience = experienceInput.value;
-    var skills = skillsInput.value.split('&').map(function (skill) { return skill.trim(); });
-    // Display the input data in the resume section
-    displayName.textContent = "".concat(name);
-    displayEmail.textContent = "Email ".concat(email);
-    displayPhone.textContent = "Phone No: ".concat(phone);
-    if (profilePicture) {
-        displayProfilePicture.src = profilePicture;
-        displayProfilePicture.style.display = 'block';
+// Function to load the image from file input and append it dynamically
+function loadImageAndAppend() {
+    var input = profilePictureInput;
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.onload = function (e) {
+            if (e.target && e.target.result) {
+                displayProfilePicture.src = e.target.result; // Set the image source
+                displayProfilePicture.style.display = 'block'; // Ensure the image is visible
+                displayProfilePicture.style.width = '150px'; // Optional: Set a fixed width for the image
+                displayProfilePicture.style.height = '150px'; // Maintain the aspect ratio
+                // Insert the profile picture at the top of the resume
+                var resumeHeader = document.querySelector('#resume header');
+                if (resumeHeader) {
+                    resumeHeader.insertBefore(displayProfilePicture, resumeHeader.firstChild);
+                }
+            }
+        };
+        reader.readAsDataURL(input.files[0]); // Read the image file
     }
-    else {
-        displayProfilePicture.style.display = 'none';
-    }
-    displayEducation.textContent = education;
-    displayExperience.textContent = experience;
-    // Clear the skills list and add new skills
+}
+// Form submission to generate resume
+function generateResume(event) {
+    event.preventDefault(); // Prevent form refresh
+    // Load and append the image when the resume is generated
+    loadImageAndAppend();
+    // Get values from the form inputs
+    var nameInput = document.getElementById('name').value;
+    var emailInput = document.getElementById('email').value;
+    var phoneInput = document.getElementById('phone').value;
+    var dobInput = document.getElementById('DateOfBirth').value;
+    var educationInput = document.getElementById('education').value;
+    var experienceInput = document.getElementById('experience').value;
+    var skillsInput = document.getElementById('skills').value.split('&');
+    // Display the inputs in the resume
+    displayName.textContent = nameInput;
+    displayEmail.textContent = "Email: ".concat(emailInput);
+    displayPhone.textContent = "Phone: ".concat(phoneInput);
+    displayDateOfBirth.textContent = "Date of Birth: ".concat(dobInput);
+    displayEducation.textContent = educationInput;
+    displayExperience.textContent = experienceInput;
+    // Clear previous skills and add new ones
     displaySkills.innerHTML = '';
-    skills.forEach(function (skill) {
+    skillsInput.forEach(function (skill) {
         var li = document.createElement('li');
-        li.textContent = skill;
+        li.textContent = skill.trim();
         displaySkills.appendChild(li);
     });
     // Show the resume section
     resumeSection.style.display = 'block';
-});
+}
+// Attach event listener to the form submission
+resumeForm.addEventListener('submit', generateResume);

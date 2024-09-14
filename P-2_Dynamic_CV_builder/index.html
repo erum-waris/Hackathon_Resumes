@@ -8,11 +8,11 @@
 </head>
 <body>
   
-    <h1>Dynamic Resume Builder</h1>
+    <h1 class="heading_1">Dynamic Resume Builder</h1>
 
     <!-- Form for user input -->
     <form id="resumeForm">
-        <h1>Personal Information</h1> 
+        <h1 class="heading_2">Personal Information</h1> 
 
         <label for="profilePicture"><b>Profile Image:</b></label>
         <input type="file" id="profilePicture" name="profilePicture" accept="image/*" required>
@@ -53,30 +53,36 @@
 
 <!-- Section where resume generated -->
 
-<section id="resume" style="display:none; background-color: rgb(171, 128, 210);" >
-    <h2>Generated Resume</h2>
+<section id="resume" >
+    <h1 class="heading">Generated Resume</h1>
     <br>
-   <h2 style="color: rgb(52, 52, 87);">Personal Info</h2> 
+    <br>
+   <h2 class="heading">Personal Info</h2> 
+  
     <header>
-        <h2 id="displayName"></h2>
-        <p id="displayEmail"></p>
-        <p id="displayPhone"></p>
-        <p id="displayDateOfBirth"></p>
-        <img id="displayProfilePicture" alt="Profile Picture" width="150" style="display:none;">
+        
+        
+        <img id="displayProfilePhoto" alt="Passport-photo" >
+        <br>
+        <h2 class="heading" id="displayName"></h2>
+        <p class="para" id="displayEmail"></p>
+        <p class="para"  id="displayPhone"></p>
+        <p class="para"  id="displayDateOfBirth"></p>
+        
     </header>
 
     <section id="displayEducation">
-        <h2 style="color: rgb(20, 20, 36);">Education</h2>
-        <p></p>
+        <h2  class="heading" >Education</h2>
+       <p class="para" ></p>
     </section>
 
     <section id="displayExperience">
-        <h2 style="color: rgb(12, 12, 20);">Work Experience</h2>
-        <p></p>
+        <h2  class="heading" >Work Experience</h2>
+     <p class="para" ></p>
     </section>
 
     <section id="displaySkills">
-        <h2 style="color: rgb(5, 5, 75);">Skills</h2>
+        <h2  class="heading">Skills</h2>
         <ul></ul>
     </section>
 </section>

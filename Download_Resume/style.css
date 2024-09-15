@@ -8,7 +8,7 @@
     margin: 0;
     padding: 0;
    
-    display: flex;
+    display: flex;                     
     justify-content: center;
     align-items: center;
   }
@@ -46,9 +46,7 @@
     background-color: white;
   }
   
-  form input::placeholder, form textarea::placeholder {
-    color: #a9a9a9; 
-  }
+  
   
   input[type="file"] {
     padding: 0;
@@ -66,17 +64,51 @@
   
   #generate-resume {
     background-color: #28a745;
+    font-weight: 500;
+    font-size: 16px;
     color: white;
     padding: 10px 20px;                                                                                                                                                                                                                                                                                     
     border: none;
     cursor: pointer;
-    transition: background-color 0.3s ease;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+    transition: background-color 0.5s ease;                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
   }
   
   #generate-resume:hover {
     background-color: #3d25de;
-  } 
   
+  } 
+  #download-pdf{
+    
+    background-color: #9a1423;
+    font-weight: 500;
+    font-size: 16px;
+    margin-top: 10px;
+    color: white;
+    padding: 10px 20px;                                                                                                                                                                                                                                                                                     
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;  
+  }
+  #download-pdf:hover{
+    background-color: #aaa3ec;
+    
+   
+  }
+  #share-link{
+    background-color: #2eac56;
+    font-weight: 500;
+    font-size: 16px;
+    margin-top: 10px;
+    color: white;
+    padding: 10px 20px;                                                                                                                                                                                                                                                                                     
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;  
+  }
+  #share-link:hover{
+    background-color: #8b8b91;
+
+  }
    .hidden {
     display: none;
   }
